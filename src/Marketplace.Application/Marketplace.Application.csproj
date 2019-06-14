@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A14D102-E61A-40B2-B68C-C4F2483713CC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Marketplace.Application</RootNamespace>
+    <AssemblyName>Marketplace.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\Base\BaseAppService.cs" />
+    <Compile Include="Interfaces\Products\IProductAppService.cs" />
+    <Compile Include="Interfaces\Products\IProductItemAppService.cs" />
+    <Compile Include="Services\Products\ProductAppService.cs" />
+    <Compile Include="Services\Products\ProductItemAppService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Marketplace.Domain\Marketplace.Domain.csproj">
+      <Project>{b626ad94-6e2d-4c5d-8438-ec13797f71a5}</Project>
+      <Name>Marketplace.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Marketplace.Infra.CrossCutting.ServiceLocator\Marketplace.Infra.CrossCutting.ServiceLocator.csproj">
+      <Project>{a9615b15-6c6e-440a-9a7f-57102ea82a37}</Project>
+      <Name>Marketplace.Infra.CrossCutting.ServiceLocator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Marketplace.Infra.Data\Marketplace.Infra.Data.csproj">
+      <Project>{abfea0bd-303b-4d52-9910-ebcd5d35a0db}</Project>
+      <Name>Marketplace.Infra.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
